@@ -26,17 +26,26 @@ def get_min_salary(path: str) -> int:
     )
 
 
-def veryfy_keys(jobs_keys):
-    min_salaryes = jobs_keys["min_salary"]
-    max_salaryes = jobs_keys["max_salary"]
+def verify_data_jobs(jobs):
+    if not isinstance(jobs["min_salary"], int) or not isinstance(
+        jobs["max_salary"], int
+    ):
+        raise ValueError
 
-    if max_salaryes < min_salaryes:
+    if jobs["max_salary"] < jobs["min_salary"]:
+        raise ValueError
+
+
+def verify_salary(salary):
+    if not isinstance(salary, int):
         raise ValueError
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     try:
-        veryfy_keys(job)
+        verify_data_jobs(job)
+        verify_salary(salary)
+        return salary <= job["max_salary"] and salary >= job["min_salary"]
     except ValueError:
         print("Erro")
 
