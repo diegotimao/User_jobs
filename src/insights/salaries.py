@@ -26,7 +26,6 @@ def get_min_salary(path: str) -> int:
     )
 
 
-
 def verify_data_jobs(jobs):
     if not isinstance(jobs["min_salary"], int) or not isinstance(
         jobs["max_salary"], int
@@ -34,6 +33,11 @@ def verify_data_jobs(jobs):
         raise ValueError
 
     if jobs["max_salary"] < jobs["min_salary"]:
+        raise ValueError
+
+
+def verify_salary(salary):
+    if not isinstance(salary, int):
         raise ValueError
 
 
