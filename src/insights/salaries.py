@@ -27,27 +27,28 @@ def get_min_salary(path: str) -> int:
 
 
 def verify_data_jobs(jobs):
+    if "min_salary" not in jobs or "max_salary" not in jobs:
+        raise ValueError
+
     if not isinstance(jobs["min_salary"], int) or not isinstance(
         jobs["max_salary"], int
     ):
         raise ValueError
 
-    if jobs["max_salary"] < jobs["min_salary"]:
+    if jobs["min_salary"] > jobs["max_salary"]:
         raise ValueError
 
 
 def verify_salary(salary):
-    if not isinstance(salary, int):
-        raise ValueError
+    int(salary)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
-    try:
-        verify_data_jobs(job)
-        verify_salary(salary)
-        return salary <= job["max_salary"] and salary >= job["min_salary"]
-    except ValueError:
-        print("Erro")
+    verify_data_jobs(job)
+    verify_salary(salary)
+    return int(salary) <= int(job["max_salary"]) and int(salary) >= int(
+        job["min_salary"]
+    )
 
 
 def filter_by_salary_range(
