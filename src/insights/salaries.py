@@ -30,26 +30,21 @@ def verify_data_jobs(jobs):
     if "min_salary" not in jobs or "max_salary" not in jobs:
         raise ValueError
 
-    if not isinstance(jobs["min_salary"], int) or not isinstance(
-        jobs["max_salary"], int
+    if not isinstance(jobs["min_salary"], (int, str)) or not isinstance(
+        jobs["max_salary"], (int, str)
     ):
         raise ValueError
 
-    if jobs["min_salary"] > jobs["max_salary"]:
+    if not str(jobs["min_salary"]).isnumeric() or not str(jobs["max_salary"]).isnumeric():
+        raise ValueError
+
+    if int(jobs["min_salary"]) > int(jobs["max_salary"]):
         raise ValueError
 
 
 def verify_salary(salary):
-    if (
-        not isinstance(salary, int)
-        and not isinstance(salary, str)
-        or (isinstance(salary, str) and not salary.isnumeric())
-    ):
+    if isinstance(salary, (int, str, float)) is False:
         raise ValueError
-
-    if salary < 0:
-        print('helooo')
-        raise ValueError is exec
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
@@ -67,10 +62,8 @@ def filter_by_salary_range(
 
     for job in jobs:
         try:
-            print(matches_salary_range(job, salary))
             if matches_salary_range(job, salary) is True:
                 range_jobs.append(job)
-        except ValueError is exec:
-            continue
-    print(range_jobs)
+        except ValueError:
+            pass
     return range_jobs
