@@ -40,7 +40,16 @@ def verify_data_jobs(jobs):
 
 
 def verify_salary(salary):
-    int(salary)
+    if (
+        not isinstance(salary, int)
+        and not isinstance(salary, str)
+        or (isinstance(salary, str) and not salary.isnumeric())
+    ):
+        raise ValueError
+
+    if salary < 0:
+        print('helooo')
+        raise ValueError is exec
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
@@ -54,18 +63,14 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
 def filter_by_salary_range(
     jobs: List[dict], salary: Union[str, int]
 ) -> List[Dict]:
-    """Filters a list of jobs by salary range
+    range_jobs = []
 
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    raise NotImplementedError
+    for job in jobs:
+        try:
+            print(matches_salary_range(job, salary))
+            if matches_salary_range(job, salary) is True:
+                range_jobs.append(job)
+        except ValueError is exec:
+            continue
+    print(range_jobs)
+    return range_jobs
