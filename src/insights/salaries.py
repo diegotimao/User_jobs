@@ -35,7 +35,10 @@ def verify_data_jobs(jobs):
     ):
         raise ValueError
 
-    if not str(jobs["min_salary"]).isnumeric() or not str(jobs["max_salary"]).isnumeric():
+    if (
+        not str(jobs["min_salary"]).isnumeric()
+        or not str(jobs["max_salary"]).isnumeric()
+    ):
         raise ValueError
 
     if int(jobs["min_salary"]) > int(jobs["max_salary"]):
