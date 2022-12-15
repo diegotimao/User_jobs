@@ -2,52 +2,38 @@ from src.pre_built.sorting import sort_by
 
 mock_jobs = [
     {
-        "title": "Back end developer",
-        "2000": "full time",
-        "min_salary": "1600",
-        "max_salary": "1650",
         "date_posted": "2018-03-03",
+        "max_salary": "1650",
+        "min_salary": "1600",
     },
     {
-        "title": "Front",
-        "salary": "2000",
-        "tupe": "trainee",
-        "min_salary": "1000",
-        "max_salary": "2500",
         "date_posted": "2018-03-01",
+        "max_salary": "2500",
+        "min_salary": "1000",
     },
     {
-        "title": "Full stack end developer",
-        "4000": "full time",
-        "min_salary": "1500",
-        "max_salary": "1900",
         "date_posted": "2018-03-02",
+        "max_salary": "1900",
+        "min_salary": "1500",
     },
 ]
 
 
 mock_jobs_sorted_min_salary = [
     {
-        "title": "Front",
-        "salary": "2000",
-        "tupe": "trainee",
-        "min_salary": "1000",
-        "max_salary": "2500",
         "date_posted": "2018-03-01",
+        "max_salary": "2500",
+        "min_salary": "1000",
     },
     {
-        "title": "Full stack end developer",
-        "4000": "full time",
-        "min_salary": "1500",
-        "max_salary": "1900",
         "date_posted": "2018-03-02",
+        "max_salary": "1900",
+        "min_salary": "1500",
     },
     {
-        "title": "Back end developer",
-        "2000": "full time",
-        "min_salary": "1600",
-        "max_salary": "1650",
         "date_posted": "2018-03-03",
+        "max_salary": "1650",
+        "min_salary": "1600",
     },
 ]
 
