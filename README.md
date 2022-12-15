@@ -1,6 +1,6 @@
 # User jobs
 
-Projeto de análise a partir de um conjunto de dados sobre empregos atravez de leitura e manipulação de arquivo .csv com a linguagem de programação python.
+Projeto de análise a partir de um conjunto de dados sobre empregos atravéz de leitura e manipulação de arquivo .csv com a linguagem de programação python.
 O projeto consiste em uma página Web que disponibiliza informações de vagas de empregos e suas características. 
 
 
